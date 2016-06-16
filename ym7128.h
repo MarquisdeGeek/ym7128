@@ -161,7 +161,6 @@ private:
   };
   
   void sendData(int address, int data) {
-    Serial.println("send data:");
     
     int dlay = 20;  // paranoidly slow response, to let the YM7128 respond. should only be 200 ns
     
@@ -172,7 +171,6 @@ private:
     // address
     for(int i=7;i>=0;--i) {
       digitalWrite(din, (1<<i) & address);  
-      //Serial.println( (1<<i) & address);  
       digitalWrite(sci, LOW);
       delayMicroseconds(dlay);
       digitalWrite(sci, HIGH);
